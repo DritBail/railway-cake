@@ -14,6 +14,4 @@ COPY . .
 
 RUN composer install --optimize-autoloader --no-interaction
 
-EXPOSE 8080
-
 CMD php -S 0.0.0.0:$PORT -t webroot
