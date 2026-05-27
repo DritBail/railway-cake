@@ -10,11 +10,11 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $title
- * @property string|null $slug
+ * @property string $slug
  * @property string|null $body
- * @property bool|null $published
- * @property \Cake\I18n\DateTime|null $created
- * @property \Cake\I18n\DateTime|null $modified
+ * @property bool $published
+ * @property \Cake\I18n\DateTime $created
+ * @property \Cake\I18n\DateTime $modified
  */
 class Article extends Entity
 {

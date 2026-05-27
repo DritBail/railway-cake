@@ -63,7 +63,8 @@ class ArticlesTable extends Table
         $validator
             ->scalar('slug')
             ->maxLength('slug', 191)
-            ->allowEmptyString('slug')
+            ->requirePresence('slug', 'create')
+            ->notEmptyString('slug')
             ->add('slug', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
@@ -72,7 +73,7 @@ class ArticlesTable extends Table
 
         $validator
             ->boolean('published')
-            ->allowEmptyString('published');
+            ->notEmptyString('published');
 
         return $validator;
     }
@@ -86,7 +87,7 @@ class ArticlesTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->isUnique(['slug'], ['allowMultipleNulls' => true]), ['errorField' => 'slug']);
+        $rules->add($rules->isUnique(['slug']), ['errorField' => 'slug']);
 
         return $rules;
     }
